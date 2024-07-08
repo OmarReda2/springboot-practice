@@ -9,7 +9,7 @@ public class Student {
     // define fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="od")
+    @Column(name="id")
     private int id;
 
     @Column(name="first_name")

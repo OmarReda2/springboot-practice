@@ -6,10 +6,7 @@ import com.myapp.springboot.cruddemo.service.EmployeeService;
 import com.myapp.springboot.cruddemo.service.EmployeeServiceImpl;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -43,5 +40,18 @@ public class EmployeeRestController {
         }
 
         return  theEmployee;
+    }
+
+    @PostMapping("/employees")
+    public Employee addEmployee(@RequestBody Employee theEmployee){
+
+        // also just in case they add an id in json ... set id to 0
+        // this is to force a save of new item ... insteed of update
+
+        theEmployee.setId(0);
+
+        Employee dbEmployee = employeeService.save(theEmployee);
+
+        return dbEmployee;
     }
 }

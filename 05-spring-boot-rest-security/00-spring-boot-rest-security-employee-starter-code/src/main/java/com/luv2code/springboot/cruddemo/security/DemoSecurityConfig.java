@@ -59,6 +59,5 @@ public class DemoSecurityConfig {
 
         return http.build();
 
-        return null;
     }
 }

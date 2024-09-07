@@ -31,14 +31,14 @@ public class EmployeeController {
 
 
 
-    @GetMapping("/showFormForLogin")
+    @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model theModel){
 
         Employee theEmployee = new Employee();
 
         theModel.addAttribute("employee", theEmployee);
 
-        return "employee/employee-form";
+        return "employees/employee-form";
 
     }
 
@@ -67,7 +67,7 @@ public class EmployeeController {
 
         employeeService.save(theEmployee);
 
-        return "redirect:/employee/list";
+        return "redirect:/employees/list";
     }
 
 

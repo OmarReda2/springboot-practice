@@ -1,4 +1,4 @@
-package com.luv2code.springboot.thymeleafdemo.Controlller;
+package com.luv2code.springboot.thymeleafdemo.Controller;
 
 import com.luv2code.springboot.thymeleafdemo.entity.Employee;
 import com.luv2code.springboot.thymeleafdemo.service.EmployeeService;
@@ -43,7 +43,7 @@ public class EmployeeController {
     }
 
 
-    @GetMapping("/showFormForUpdate")
+    @PostMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("employeeId") int theId, Model theModel){
 
         Employee theEmployee = employeeService.findById(theId);
